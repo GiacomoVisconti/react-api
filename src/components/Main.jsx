@@ -23,21 +23,36 @@ export default function Main(){
     return (
         
         <div className="container">
-            {console.log(actorsData, actressData)
-            }
             <div className="py-3">
                 <h3>Actress and Actors</h3>
             </div>
             <div className="row">
+                {actorsData?.map((element) => {
+                    return (
 
-                <div className="col">
-                    <div className="card">
-                        <img src="..." className="card-img-top" alt="..."/>
-                        <div className="card-body">
-                            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+                        <div  key={element.id} className=" py-3 col-sm-6 col-md-4 col-lg-3">
+                            <div className="card h-100">
+                                <img src={element.image} className="card-img-top img-fluid" alt={element.name}/>
+                                <div className="card-body">
+                                    <h4 className="card-text text-center">{element.name}</h4>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    )
+                })}
+                {actressData?.map((element) => {
+                    return (
+
+                        <div key={element.id} className=" py-3 col-sm-6 col-md-4 col-lg-3">
+                            <div className="card h-100">
+                                <img src={element.image} className="card-img-top img-fluid" alt={element.name}/>
+                                <div className="card-body">
+                                    <h4 className="card-text text-center">{element.name}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    )
+                })}
             </div>
         </div>
     )
